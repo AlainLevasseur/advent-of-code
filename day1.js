@@ -6,9 +6,10 @@ let first = 0;
 let second = 0;
 let third = 0;
 
+const answer = document.querySelector('.day1 .answer');
 const inputForm = document.getElementById("day1");
 inputForm.addEventListener('change', () => {
-    console.log(countMaxCalories(inputForm.value));
+    answer.textContent = `Answer: ${countMaxCalories(inputForm.value)}`;
 })
 
 function setTopThree(newValue) {
