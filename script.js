@@ -1,8 +1,14 @@
 import { day1 } from "./day1.js";
 import { day2 } from "./day2.js";
 import { day3 } from "./day3.js";
+import { day4 } from "./day4.js";
 
-const days = [0, 
+const day = 0;
+const days = [
+    {
+        inputName: "",
+        answers: day
+    }, 
     {
         inputName: "Elf List",
         answers: day1
@@ -14,7 +20,12 @@ const days = [0,
     {
         inputName: "Rucksack Contents",
         answers: day3
-    }];
+    },
+    {
+        inputName: "Range Pairs",
+        answers: day4
+    }
+];
 
 showAllDays();
 
