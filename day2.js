@@ -18,12 +18,6 @@ const LOSS = 'X';
 const DRAW = 'Y';
 const WIN = 'Z';
 
-const answerDay2 = document.querySelector('.day2 .answer');
-const inputFormDay2 = document.getElementById("day2");
-inputFormDay2.addEventListener('change', () => {
-    answerDay2.textContent = `Answer: ${parseCorrectStrategyGuide(inputFormDay2.value)}`;
-})
-
 function getPlayerChoiceScore(playerChoice) {
     switch(playerChoice){
         case CHOICE_ROCK:
@@ -97,4 +91,8 @@ function parseCorrectStrategyGuide(string) {
         myScore += getPlayerChoiceScore(myMove) + getRoundScore(myMove, opponentMove);
     }
     return myScore;
+}
+
+export function day2(string) {
+    return [parseStrategyGuide(string), parseCorrectStrategyGuide(string)];
 }
