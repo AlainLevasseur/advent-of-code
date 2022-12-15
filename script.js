@@ -2,6 +2,7 @@ import { day1 } from "./day1.js";
 import { day2 } from "./day2.js";
 import { day3 } from "./day3.js";
 import { day4 } from "./day4.js";
+import { day5 } from "./day5.js";
 
 const day = 0;
 const days = [
@@ -24,6 +25,10 @@ const days = [
     {
         inputName: "Range Pairs",
         answers: day4
+    },
+    {
+        inputName: "",
+        answers: day5
     }
 ];
 
