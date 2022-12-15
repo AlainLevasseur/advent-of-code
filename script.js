@@ -1,8 +1,6 @@
 import { day1 } from "./day1.js";
 import { day2 } from "./day2.js";
 
-
-const NUM_DAYS = 25;
 const days = [0, 
     {
         inputName: "Elf List",
@@ -13,9 +11,13 @@ const days = [0,
         answers: day2
     }];
 
+showAllDays();
 
-createDay(1);
-createDay(2);
+function showAllDays() {
+    for(let i = 1; i < days.length; i++) {
+        createDay(i);
+    }
+}
 
 function updateAnswer(dayNumber, input) {
     const answer = days[dayNumber].answers(input);
