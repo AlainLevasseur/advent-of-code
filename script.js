@@ -1,5 +1,6 @@
 import { day1 } from "./day1.js";
 import { day2 } from "./day2.js";
+import { day3 } from "./day3.js";
 
 const days = [0, 
     {
@@ -9,6 +10,10 @@ const days = [0,
     {
         inputName: "Strategy Guide",
         answers: day2
+    },
+    {
+        inputName: "Rucksack Contents",
+        answers: day3
     }];
 
 showAllDays();
