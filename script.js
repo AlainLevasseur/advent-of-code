@@ -32,7 +32,7 @@ const days = [
         answers: day5
     },
     {
-        inputName: "",
+        inputName: "Datastream",
         answers: day6
     }
 ];
