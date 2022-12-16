@@ -4,6 +4,7 @@ import { day3 } from "./day3.js";
 import { day4 } from "./day4.js";
 import { day5 } from "./day5.js";
 import { day6 } from "./day6.js";
+import { day7 } from "./day7.js";
 
 const day = 0;
 const days = [
@@ -34,6 +35,10 @@ const days = [
     {
         inputName: "Datastream",
         answers: day6
+    },
+    {
+        inputName: "Terminal Output",
+        answers: day7
     }
 ];
 
