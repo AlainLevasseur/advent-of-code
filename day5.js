@@ -8,7 +8,7 @@ function part1(inputString) {
                 currentStackArrangement = getStacks(element); 
             } else {
 
-                currentStackArrangement = processMove(currentStackArrangement, getMove(element));
+                currentStackArrangement = processMove(currentStackArrangement, getMove(element), true);
             }
         });
     solution = getStackTop(currentStackArrangement);
@@ -64,10 +64,11 @@ function getMove(input) {
 }
 
 //processMove(stacks, move) -> ['NZ', 'DCM', 'P', ...]
-function processMove(stacks, move) {
+function processMove(stacks, move, reversed) {
     let newStacks = Array.from(stacks);
     //Items moved need to be reversed
-    let movedItems = stacks[move.from].substring(0, move.amount).split('').reverse().join('');
+    let movedItems = stacks[move.from].substring(0, move.amount);
+    if(reversed) movedItems = movedItems.split('').reverse().join('');
     newStacks[move.from] = newStacks[move.from].substring(move.amount);
     newStacks[move.to] = movedItems + stacks[move.to];
     return newStacks;
@@ -83,7 +84,19 @@ function getStackTop(stacks) {
 }
 
 function part2(inputString) {
-    let solution = inputString;
+    let solution;
+    let currentStackArrangement;
+    inputString
+        .split('move')
+        .forEach((element, index) => {
+            if(index === 0) { 
+                currentStackArrangement = getStacks(element); 
+            } else {
+
+                currentStackArrangement = processMove(currentStackArrangement, getMove(element), false);
+            }
+        });
+    solution = getStackTop(currentStackArrangement);
     return solution;
 }
 
