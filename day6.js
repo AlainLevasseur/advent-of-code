@@ -15,7 +15,20 @@ function part1(inputString) {
 }
 
 function part2(inputString) {
-    let solution = inputString;
+    let solution;
+    let uniqueString = '';
+    for(let index = 0; index < inputString.length; index++) {
+        let character = inputString[index];
+        let duplicatePosition = uniqueString.indexOf(character);
+        if( duplicatePosition !== -1 ) {
+            uniqueString = uniqueString.substring(duplicatePosition + 1);
+        }
+        uniqueString += character;
+        if(uniqueString.length === 14) {
+            solution = index + 1;
+            break;
+        }
+    }
     return solution;
 }
 
