@@ -6,6 +6,23 @@ import { day5 } from "./day5.js";
 import { day6 } from "./day6.js";
 import { day7 } from "./day7.js";
 import { day8 } from "./day8.js";
+import { day9 } from "./day9.js";
+import { day10 } from "./day10.js";
+import { day11 } from "./day11.js";
+import { day12 } from "./day12.js";
+import { day13 } from "./day13.js";
+import { day14 } from "./day14.js";
+import { day15 } from "./day15.js";
+import { day16 } from "./day16.js";
+import { day17 } from "./day17.js";
+import { day18 } from "./day18.js";
+import { day19 } from "./day19.js";
+import { day20 } from "./day20.js";
+import { day21 } from "./day21.js";
+import { day22 } from "./day22.js";
+import { day23 } from "./day23.js";
+import { day24 } from "./day24.js";
+import { day25 } from "./day25.js";
 
 const day = 0;
 const days = [
@@ -44,10 +61,84 @@ const days = [
     {
         inputName: "Tree Grid",
         answers: day8
-    }
+    },
+    {
+        inputName: "",
+        answers: day9
+    },
+    {
+        inputName: "",
+        answers: day10
+    },
+    {
+        inputName: "",
+        answers: day11
+    },
+    {
+        inputName: "",
+        answers: day12
+    },
+    {
+        inputName: "",
+        answers: day13
+    },
+    {
+        inputName: "",
+        answers: day14
+    },
+    {
+        inputName: "",
+        answers: day15
+    },
+    {
+        inputName: "",
+        answers: day16
+    },
+    {
+        inputName: "",
+        answers: day17
+    },
+    {
+        inputName: "",
+        answers: day18
+    },
+    {
+        inputName: "",
+        answers: day19
+    },
+    {
+        inputName: "",
+        answers: day20
+    },
+    {
+        inputName: "",
+        answers: day21
+    },
+    {
+        inputName: "",
+        answers: day22
+    },
+    {
+        inputName: "",
+        answers: day23
+    },
+    {
+        inputName: "",
+        answers: day24
+    },
+    {
+        inputName: "",
+        answers: day25
+    },
 ];
 
-showAllDays();
+const SOLVING = 9;
+
+if(SOLVING === 26) {
+    showAllDays();
+}
+
+createDay(SOLVING);
 
 function showAllDays() {
     for(let i = 1; i < days.length; i++) {
