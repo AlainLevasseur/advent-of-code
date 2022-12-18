@@ -63,11 +63,11 @@ const days = [
         answers: day8
     },
     {
-        inputName: "",
+        inputName: "Rope Movements",
         answers: day9
     },
     {
-        inputName: "",
+        inputName: "CPU Instructions",
         answers: day10
     },
     {
@@ -132,7 +132,7 @@ const days = [
     },
 ];
 
-const SOLVING = 9;
+const SOLVING = 10;
 
 if(SOLVING === 26) {
     showAllDays();
