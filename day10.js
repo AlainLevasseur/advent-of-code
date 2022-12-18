@@ -8,7 +8,7 @@ function executeInstruction(instruction) {
 
 function incrementCycle(){
     cycleCounter++;
-    console.log(`Cycle: ${cycleCounter}, X: ${registerX}`);
+    //console.log(`Cycle: ${cycleCounter}, X: ${registerX}`);
     switch(cycleCounter) {
         case 20:
             signalStrength.push(registerX * cycleCounter);
@@ -54,8 +54,34 @@ function part1(inputString) {
     return solution;
 }
 
+function drawPixel() {
+    let pixel = (registerX - 1 <= cycleCounter && cycleCounter <= registerX + 1) ? '#' : '.';
+    console.log(`Cycle: ${cycleCounter}, X: ${registerX}`);
+    if(cycleCounter === 39) {
+        pixel += '\n';
+        cycleCounter = -1;
+    }
+    cycleCounter++;
+    return pixel;
+}
+
 function part2(inputString) {
-    let solution = inputString;
+    let solution = '\n';
+    let instructions = inputString.split(' ');
+    let currentInstruction;
+    cycleCounter = 0;
+    registerX = 1;
+    signalStrength = [];
+    while(instructions.length !== 0) {
+        currentInstruction = instructions.shift();
+        if(currentInstruction === "noop") { 
+            solution += drawPixel(); 
+        } else {
+            solution += drawPixel(); 
+            solution += drawPixel(); 
+            registerX += executeInstruction(instructions.shift());
+        }
+    }
     return solution;
 }
 
