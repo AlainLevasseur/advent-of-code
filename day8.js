@@ -4,7 +4,6 @@ function makeTreeGrid(string) {
     rows.forEach((row) => {
         grid.push(row.split(''));
     })
-    console.log(grid);
     return grid;
 }
 
@@ -54,8 +53,50 @@ function part1(inputString) {
     return solution;
 }
 
+function getScenicScore(treeHeight, row, column, grid) {
+    const ROW_SIZE = grid.length;
+    const COLUMN_SIZE = grid[row].length;
+    let left = 0;
+    let right = 0;
+    let top = 0;
+    let bottom = 0;
+    for(let i = 1; (row + i) < ROW_SIZE; i++) {
+        right++;
+        if(grid[row + i][column] >= treeHeight) {
+            break;
+        }
+    }
+    for(let i = 1; (row - i) >= 0; i++) {
+        left++;
+        if(grid[row - i][column] >= treeHeight) {
+            break;
+        }
+    }
+    for(let i = 1; (column + i) < COLUMN_SIZE; i++) {
+            top++;
+            if(grid[row][column + i] >= treeHeight) {
+            break;
+        }
+    }
+    for(let i = 1; (column - i) >= 0; i++) {
+        bottom++;
+        if(grid[row][column - i] >= treeHeight) {
+            break;
+        }
+    }
+    return left * right * top * bottom;
+}
+
 function part2(inputString) {
-    let solution = inputString;
+    let solution = 0;
+    let treeGrid = makeTreeGrid(inputString);
+    let scenicScore;
+    treeGrid.forEach((row, rowIndex) => {
+        row.forEach((treeHeight, columnIndex) => {
+            scenicScore = getScenicScore(treeHeight, rowIndex, columnIndex, treeGrid);
+            solution = solution > scenicScore ? solution : scenicScore;
+        })
+    })
     return solution;
 }
 
