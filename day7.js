@@ -47,6 +47,7 @@ class Directory {
         return parent.getRootDirectory();
     }
 
+    //First element is the size of the current directory, every element afterwards is the size of a child directory
     getDirectorySizes() {
         let children = this.childDirectories;
         let childrenSizes = [];
