@@ -1,4 +1,6 @@
 const MAX_DIRECTORY_SIZE = 100000;
+const MAX_FILESYSTEM_SIZE = 70000000;
+const UPDATE_SIZE = 30000000;
 
 class Directory {
     constructor(name, parentDirectory) {
@@ -115,7 +117,20 @@ function processLS(directoryContents, currentDirectory) {
 }
 
 function part2(inputString) {
-    let solution = inputString;
+    let solution = 0;
+    let currentDirectory = null;
+    let commands = inputString.split("$");
+    commands.forEach(command => {
+        currentDirectory = processCommand(command, currentDirectory);
+    });
+    const directorySizes = currentDirectory.getRootDirectory().getDirectorySizes();
+    const FREE_SPACE = (MAX_FILESYSTEM_SIZE - directorySizes[0]);
+    const SPACE_REQUIRED = UPDATE_SIZE - FREE_SPACE;
+    solution = directorySizes.reduce((smallestSize, size) => {
+        console.log([FREE_SPACE, SPACE_REQUIRED, size, smallestSize]);
+        if (size >= SPACE_REQUIRED && size < smallestSize) { return size; }
+        return smallestSize;
+    });
     return solution;
 }
 
